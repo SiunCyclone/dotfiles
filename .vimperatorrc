@@ -1,0 +1,47 @@
+colorscheme sweets_dita
+
+set hinttimeout=240
+set hintchars=ialksjdo
+
+" Disable autofocusing to input form
+set focuscontent
+" Hide tab-close-button
+set! browser.tabs.closeButtons=2
+" Forbid mouse-smooze-scrolling
+set! general.smoothScroll=false
+
+
+let g:smooziee_scroll_amount="160"
+let g:smooziee_scroll_interval="2"
+noremap <A-j> 1j
+noremap <A-k> 1k
+noremap <C-j> <C-d>
+noremap <C-k> <C-u>
+
+nnoremap h gT
+nnoremap l gt
+" Back to the previous buffer(tab)
+nnoremap B <C-^>
+
+" Disable IGNORE
+noremap i <Nop>
+
+noremap ,es :set encoding=Shift_JIS<CR>
+noremap ,ec :set encoding=EUC-JP<CR>
+noremap ,eu :set encoding=UTF-8<CR>
+noremap ,ei :set encoding=ISO-2022-JP<CR>
+
+noremap ,ad :tab addo<CR>
+noremap ,do :tab :downloads<CR>
+noremap ,co :t about:config<CR>
+
+" Complete tab from closed tabs
+noremap ,u :undo<Space>
+
+
+" Color of link character: Purple
+hi Hint z-index: 9999; background-color: #7F3FBF; color: white; text-transform: uppercase; font-size: 24px; padding: 1px 1px 1px 1px;
+" Color of link text: Cyan
+hi HintElem   background-color: #ABFFFF; color: black;
+hi HintActive background-color: #3D49FD; color: black;
+

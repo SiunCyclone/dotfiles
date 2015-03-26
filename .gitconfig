@@ -1,0 +1,28 @@
+[core]
+  editor = vim
+[merge]
+  tool = vimdiff
+[color]
+  ui = true
+[color "diff"]
+  frag = yellow
+  old = red
+  new = cyan
+[alias]
+  b = branch
+  ba = branch -a
+  ch = checkout
+  ci = commit
+  l = log --graph --all -n 20 --pretty=format:'%C(green)%h %C(blue)%an%Creset%C(yellow)%d%Creset %s %C(blue)[%cr]%Creset'
+  la = log --graph --all --pretty=format:'%C(green)%h %C(blue)%an%Creset%C(yellow)%d%Creset %s %C(blue)[%cr]%Creset'
+  lp = log --oneline -n 20 -p
+  ls = log --stat --abbrev-commit -n 1
+  lsa = log --stat --abbrev-commit
+  s = status
+  dt = difftool
+  mt = mergetool
+[diff]
+  tool = vimdiff
+[difftool]
+  prompt = false
+

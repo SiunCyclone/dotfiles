@@ -1,0 +1,109 @@
+#!/bin/bash
+
+DOT_FILES=( .vimrc .vimperatorrc .vimperator .gitconfig .zshrc )
+
+function confirm {
+  while true;
+  do
+    read answer
+    case $answer in
+      [yY]) return 0;;
+      [nN]) return 1;;
+      *) echo "Please type 'y' or 'n'"
+         confirm
+         return;;
+    esac
+  done
+}
+
+function replace_link {
+  local link=$1
+  local referer=$2
+
+  echo "'$link' already exists."
+  echo "Want to replace?(y/n)"
+  confirm
+  if [ $? -eq 0 ]; then
+    rm -f $HOME/$link
+    ln -s $cPath/$referer $HOME/$link
+    echo "[Replaced]: $link"
+  else
+    echo "[Ignored]: $link"
+  fi
+  echo
+}
+
+function create_link {
+  local name=$1
+
+  echo $cPath/$name $HOME/$name
+  ln -s $cPath/$name $HOME/$name
+  echo "[Created]: $name"
+  echo
+}
+
+function place_dotfiles {
+  echo "*** Creating Symbolic Link ***"
+  echo
+  cPath=$PWD
+  for file in ${DOT_FILES[@]}
+  do
+    if [ $file = ".vimperator" -a "`echo ${OSTYPE} | grep "msys"`" != "" ]; then
+      if [ -a $HOME/vimperator ]; then
+        replace_link "vimperator" $file
+      else
+        create_link $file
+        mv $HOME/.vimperator $HOME/vimperator
+      fi
+      continue
+    fi
+
+    if [ -a $HOME/$file ]; then
+      replace_link $file $file
+    else
+      create_link $file
+    fi
+  done
+}
+
+function install_pacman_pkg {
+  echo "*** Install Pacman Packages ***"
+  echo
+  echo "* Update Pacman System"
+  echo
+  pacman -Syu
+  echo "* Install vim, git, zsh, ruby"
+  echo
+  pacman -S vim git zsh ruby
+}
+
+function setup_windows {
+  echo "windows"
+  place_dotfiles
+  install_pacman_pkg
+}
+
+function setup_mac {
+  echo "mac"
+  place_dotfiles
+}
+
+function setup_linux {
+  echo "linux"
+  place_dotfiles
+  install_pacman_pkg
+}
+
+function main {
+  case "${OSTYPE}" in
+    msys*)
+      setup_windows;;
+    darwin*)
+      setup_mac;;
+    linux*)
+      setup_linux;;
+  esac
+}
+
+main
+
