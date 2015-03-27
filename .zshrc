@@ -85,7 +85,7 @@ setopt hist_ignore_space
 # Record the time
 setopt extended_history
 
-# Show git branch to the right edge of the shell
+# Settings of showing git branch
 autoload -Uz vcs_info
 setopt prompt_subst
 zstyle ':vcs_info:git:*' check-for-changes true
