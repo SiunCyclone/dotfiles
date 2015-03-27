@@ -77,10 +77,27 @@ function install_pacman_pkg {
   pacman -S vim git zsh ruby
 }
 
+function modify_msys_batfile {
+  ruby -e "
+    text = ''
+    msysPath = /i(3|6)86/ =~ \`uname -a\`.to_s ? 'C:/msys32/' : 'C:/msys64/'
+    p msysPath
+    open(msysPath + 'msys2_shell.bat') do |f|
+      text = f.read
+      text.gsub!('rem set MSYS=winsymlinks:nativestrict', 'set MSYS=winsymlinks:nativestrict')
+    end
+
+    open(msysPath + 'msys2_shell.bat', 'w') do |f|
+      f.write(text)
+    end
+  "
+}
+
 function setup_windows {
   echo "windows"
-  place_dotfiles
   install_pacman_pkg
+  modify_msys_batfile
+  place_dotfiles
 }
 
 function setup_mac {
@@ -90,8 +107,8 @@ function setup_mac {
 
 function setup_linux {
   echo "linux"
-  place_dotfiles
   install_pacman_pkg
+  place_dotfiles
 }
 
 function main {
