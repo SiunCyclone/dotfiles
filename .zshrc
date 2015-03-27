@@ -13,6 +13,10 @@ alias lsla="ls -l -a"
 alias .="cd .."
 alias v="vim"
 alias vi="vim"
+alias vimp="vim $HOME/.vimperatorrc"
+alias vimr="vim $HOME/.vimrc"
+alias zshr="vim $HOME/.zshrc"
+alias hisz="history -nir 0 | less"
 
 # Ignore .o file when complete
 fignore=(.o)
