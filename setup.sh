@@ -17,8 +17,8 @@ function confirm {
 }
 
 function replace_link {
-  local link=$1
-  local referer=$2
+  local referer=$1
+  local link=$2
 
   echo "'$link' already exists."
   echo "Want to replace?(y/n)"
@@ -50,7 +50,7 @@ function place_dotfiles {
   do
     if [ $file = ".vimperator" -a "`echo ${OSTYPE} | grep "msys"`" != "" ]; then
       if [ -a $HOME/vimperator ]; then
-        replace_link "vimperator" $file
+        replace_link $file "vimperator"
       else
         create_link $file
         mv $HOME/.vimperator $HOME/vimperator
