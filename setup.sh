@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOT_FILES=( .vimrc .vimperatorrc .vimperator .gitconfig .zshrc )
+DOT_FILES=( .vim .vimrc .vimperatorrc .vimperator .gitconfig .zshrc )
 
 function confirm {
   while true;
