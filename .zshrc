@@ -8,9 +8,36 @@ case ${OSTYPE} in
 esac
 alias lsa="ls -a"
 alias lsl="ls -l"
+alias lsla="ls -la"
 alias lslh="ls -lh"
-alias lsla="ls -l -a"
+alias lslah="ls -lah"
+alias lslha="ls -lah"
 alias .="cd .."
+alias gi="git"
+alias gil="git l"
+alias gila="git la"
+alias gilp="git lp"
+alias gils="git ls"
+alias gilsa="git lsa"
+alias gis="git s"
+alias giff="git diff"
+alias gih="git ch"
+alias gib="git b"
+alias giba="git ba"
+alias gimit="git ci -m"
+alias gimend="git ci --amend"
+alias ginit="git init"
+alias gidd="git add"
+alias ginfig="git config"
+alias ginfil="git config --list"
+alias ginfiu="git config user.name"
+alias ginfim="git config user.email"
+alias gish="git push"
+alias gill="git pull"
+alias gisupdate="git submodule update"
+alias gisupdateinit="git submodule update --init"
+alias giflog="git reflog"
+alias girm="git rm"
 alias v="vim"
 alias vi="vim"
 alias vimp="vim $HOME/.vimperatorrc"
@@ -38,7 +65,7 @@ setopt auto_pushd
 autoload colors
 colors
 # Coloring for tab-completion
-autoload -U compinit
+autoload -Uz compinit
 compinit
 
 export LS_COLORS='di=01;38;05;69:ow=01;38;05;70:*.png=00;38;05;163:*.gif=00;38;05;163:*.jpg=00;38;05;163:*.JPG=00;38;05;163:*.bmp=00;38;05;163:*.html=00;38;05;154:*.cgi=00;38;05;154:*.js=00;38;05;99:*.sh=00;38;05;45:*.rb=00;38;05;166:*.d=00;38;05;220:*.c=00;38;05;190:*.cpp=00;38;05;190:*cc=00;38;05;190:*.h=00;38;05;41:*.css=00;38;05;229:*.avi=00;38;05;205:*.flv=00;38;05;205:*mkv=00;38;05;205:*mp4=00;38;05;205:*.wmv=00;38;05;205:*.rar=00;38;05;124:*.zip=00;38;05;124:*.tar.gz=00;38;05;124:*.mp3=00;38;05;32:*.wav=00;38;05;32:*.m4a=00;38;05;32:*.otf=00;38;05;94:*.ttf=00;38;05;94:*.torrent=00;38;05;34:*.pdf=00;38;05;172'
