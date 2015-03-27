@@ -77,11 +77,17 @@ function install_pacman_pkg {
   pacman -S vim git zsh ruby
 }
 
+function install_brew_pkg {
+  echo "*** Install Homebrew Packages ***"
+  echo
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  brew install coreutils
+}
+
 function modify_msys_batfile {
   ruby -e "
     text = ''
     msysPath = /i(3|6)86/ =~ \`uname -a\`.to_s ? 'C:/msys32/' : 'C:/msys64/'
-    p msysPath
     open(msysPath + 'msys2_shell.bat') do |f|
       text = f.read
       text.gsub!('rem set MSYS=winsymlinks:nativestrict', 'set MSYS=winsymlinks:nativestrict')
@@ -103,6 +109,7 @@ function setup_windows {
 
 function setup_mac {
   echo "mac"
+  install_brew_pkg
   place_dotfiles
 }
 
