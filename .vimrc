@@ -10,7 +10,6 @@ if has('vim_starting')
   if &compatible
     set nocompatible
   endif
-  set nocompatible
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
@@ -147,7 +146,7 @@ set expandtab
 set shiftwidth=2
 " Width of tab
 set tabstop=2
-" F11 is paste mode
+" Set F11 as paste mode
 set pastetoggle=<F11>
 " Complete command line
 set wildmenu
