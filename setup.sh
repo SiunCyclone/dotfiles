@@ -91,7 +91,7 @@ function modify_msys_batfile {
       f.write(text)
     end
   "
-  set MSYS=winsymlinks:nativestrict
+  export MSYS=winsymlinks:nativestrict
 }
 
 function setup_windows {
