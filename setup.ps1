@@ -5,7 +5,7 @@ if ((Test-Path 'C:\Program Files (x86)\Mozilla Firefox') -Or (Test-Path 'C:\Prog
   echo "firefox is already installed"
 } else {
   echo "*** Downloading firefox ***"
-  Invoke-WebRequest "https://download.mozilla.org/?product=firefox-36.0.4-SSL&os=win&lang=ja" -OutFile $HOME/firefox_installer.exe -User Agent [Microsoft.PowerShell.Commands.PSUserAgent]::Firefox
+  Invoke-WebRequest "https://download.mozilla.org/?product=firefox-36.0.4-SSL&os=win&lang=ja" -OutFile $HOME/firefox_installer.exe -UserAgent [Microsoft.PowerShell.Commands.PSUserAgent]::Firefox
   cd $HOME
   Start-Process ./firefox_installer.exe
 }
