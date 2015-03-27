@@ -10,7 +10,19 @@ set MSYS=winsymlinks:nativestrict
 
 3. Excute setup.sh from msys2 shell (Administrator)
 
+4. Update submodule
+
+  ```
+$ git submodule update --init
+  ```
+
 ### Mac, Linux
 
 1. Execute setup.sh
+
+2. Update submodule
+
+  ```
+$ git submodule update --init
+  ```
 
