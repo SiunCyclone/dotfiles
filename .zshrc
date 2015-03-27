@@ -72,10 +72,6 @@ export LS_COLORS='di=01;38;05;69:ow=01;38;05;70:*.png=00;38;05;163:*.gif=00;38;0
 
 zstyle ':completion:*' list-colors 'di=01;38;05;69:ow=01;38;05;70:*.png=00;38;05;163:*.gif=00;38;05;163:*.jpg=00;38;05;163:*.JPG=00;38;05;163:*.bmp=00;38;05;163:*.html=00;38;05;154:*.cgi=00;38;05;154:*.js=00;38;05;99:*.sh=00;38;05;45:*.rb=00;38;05;166:*.d=00;38;05;220:*.c=00;38;05;190:*.cpp=00;38;05;190:*cc=00;38;05;190:*.h=00;38;05;41:*.css=00;38;05;229:*.avi=00;38;05;205:*.flv=00;38;05;205:*mkv=00;38;05;205:*mp4=00;38;05;205:*.wmv=00;38;05;205:*.rar=00;38;05;124:*.zip=00;38;05;124:*.tar.gz=00;38;05;124:*.mp3=00;38;05;32:*.wav=00;38;05;32:*.m4a=00;38;05;32:*.otf=00;38;05;94:*.ttf=00;38;05;94:*.torrent=00;38;05;34:*.pdf=00;38;05;172'
 
-PROMPT="$fg[cyan]${USER}$fg[white]@$fg[magenta]${HOST}$fg[white]$fg[white]     %B%~
-%b$ "
-RPROMPT="%B[%35<..<%~]"
-
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=100000000
 SAVEHIST=100000000
@@ -88,4 +84,18 @@ setopt share_history
 setopt hist_ignore_space
 # Record the time
 setopt extended_history
+
+# Show git branch to the right edge of the shell
+autoload -Uz vcs_info
+setopt prompt_subst
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
+zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
+zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
+zstyle ':vcs_info:*' actionformats '[%b|%a]'
+precmd () { vcs_info }
+
+PROMPT="$fg[cyan]${USER}$fg[white]@$fg[magenta]${HOST}$fg[white]     %B%~
+%b$ "
+RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
 
