@@ -85,6 +85,13 @@ setopt hist_ignore_space
 # Record the time
 setopt extended_history
 
+autoload history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^P" history-beginning-search-backward-end
+bindkey "^N" history-beginning-search-forward-end
+
+
 # Settings of showing git branch
 autoload -Uz vcs_info
 setopt prompt_subst
@@ -98,4 +105,24 @@ precmd () { vcs_info }
 PROMPT="$fg[cyan]${USER}$fg[white]@$fg[magenta]${HOST}$fg[white]     %B%~
 %b$ "
 RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
+
+
+# Setup zsh-autosuggestions
+source $HOME/.zsh-autosuggestions/autosuggestions.zsh
+
+# Enable autosuggestions automatically
+zle-line-init() {
+  zle autosuggest-start
+}
+
+zle -N zle-line-init
+
+# use ctrl+t to toggle autosuggestions(hopefully this wont be needed as
+# zsh-autosuggestions is designed to be unobtrusive)
+bindkey '^T' autosuggest-toggle
+
+AUTOSUGGESTION_HIGHLIGHT_COLOR='fg=6'
+
+bindkey '^H' beginning-of-line
+bindkey '^L' end-of-line
 

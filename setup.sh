@@ -100,23 +100,31 @@ function modify_msys_batfile {
   export MSYS=winsymlinks:nativestrict
 }
 
+function install_zsh_plugins {
+  # zsh-autosuggestions
+  git clone git://github.com/tarruda/zsh-autosuggestions $HOME/.zsh-autosuggestions
+}
+
 function setup_windows {
   echo "windows"
   install_pacman_pkg
   modify_msys_batfile
   place_dotfiles
+  install_zsh_plugins
 }
 
 function setup_mac {
   echo "mac"
   install_brew_pkg
   place_dotfiles
+  install_zsh_plugins
 }
 
 function setup_linux {
   echo "linux"
   install_pacman_pkg
   place_dotfiles
+  install_zsh_plugins
 }
 
 function main {
