@@ -27,7 +27,7 @@ alias giba="git ba"
 alias gimit="git ci -m"
 alias gimend="git ci --amend"
 alias ginit="git init"
-alias gidd="git add"
+alias gid="git add"
 alias ginfig="git config"
 alias ginfil="git config --list"
 alias ginfiu="git config user.name"
@@ -44,6 +44,7 @@ alias vimp="vim $HOME/.vimperatorrc"
 alias vimr="vim $HOME/.vimrc"
 alias zshr="vim $HOME/.zshrc"
 alias hisz="history -nir 0 | less"
+alias df="df -h"
 
 # Ignore .o file when complete
 fignore=(.o)
