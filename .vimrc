@@ -156,6 +156,8 @@ set ambiwidth=double
 set foldmethod=indent
 " Level of folding
 set foldlevel=100
+" Enable backspace
+set backspace=indent,eol,start
 
 map <C-j> 10j
 map <C-k> 10k
