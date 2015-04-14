@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOT_FILES=( .vim .vimrc .vimperatorrc .vimperator .gitconfig .zshrc )
+DOT_FILES=( .vim .vimrc .vimperatorrc .vimperator .gitconfig .zshrc AppData/Roaming/keyhac/config.py )
 
 function confirm {
   while true;
@@ -49,7 +49,7 @@ function place_dotfiles {
   for file in ${DOT_FILES[@]}
   do
     if [ $file = ".vimperator" -a "`echo ${OSTYPE} | grep "msys"`" != "" ]; then
-      if [ -a $HOME/vimperator ]; then
+      if [ -e $HOME/vimperator ]; then
         replace_link $file "vimperator"
       else
         create_link $file
@@ -58,7 +58,7 @@ function place_dotfiles {
       continue
     fi
 
-    if [ -a $HOME/$file ]; then
+    if [ -e $HOME/$file ]; then
       replace_link $file $file
     else
       create_link $file
@@ -106,7 +106,9 @@ function modify_msys_batfile {
 
 function install_zsh_plugins {
   # zsh-autosuggestions
-  git clone git://github.com/tarruda/zsh-autosuggestions $HOME/.zsh-autosuggestions
+  if [ ! -e $HOME/.zsh-autosuggestions ]; then
+    git clone git://github.com/tarruda/zsh-autosuggestions $HOME/.zsh-autosuggestions
+  fi
 }
 
 function setup_windows {
