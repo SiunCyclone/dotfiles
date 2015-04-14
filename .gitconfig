@@ -13,8 +13,8 @@
   ba = branch -a
   ch = checkout
   ci = commit
-  l = log --graph --all -n 20 --pretty=format:'%C(green)%h %C(blue)%an%Creset%C(yellow)%d%Creset %s %C(blue)[%cr]%Creset'
-  la = log --graph --all --pretty=format:'%C(green)%h %C(blue)%an%Creset%C(yellow)%d%Creset %s %C(blue)[%cr]%Creset'
+  l = log --graph --all -n 20 --pretty=format:'%C(green)%h %C(cyan)%an%Creset%C(yellow)%d%Creset %s %C(cyan)[%cr]%Creset'
+  la = log --graph --all --pretty=format:'%C(green)%h %C(cyan)%an%Creset%C(yellow)%d%Creset %s %C(cyan)[%cr]%Creset'
   lp = log --oneline -n 20 -p
   ls = log --stat --abbrev-commit -n 1
   lsa = log --stat --abbrev-commit
