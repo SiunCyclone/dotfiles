@@ -2,8 +2,6 @@ let s:is_darwin = system('uname') == "Darwin\n"
 let s:is_linux = system('uname') == "Linux\n"
 let s:is_msys = !s:is_darwin && !s:is_linux
 
-set encoding=utf-8
-
 " Excute at startup
 if has('vim_starting')
   " Cut compatibility with vi
@@ -158,6 +156,28 @@ set foldmethod=indent
 set foldlevel=100
 " Enable backspace
 set backspace=indent,eol,start
+
+set encoding=utf-8
+" Auto detection
+set fileencodings=utf-8,euc-jp,sjis
+set fileformats=unix,dos,mac
+
+" Open the file with specific encoding
+command Es :e ++enc=shift_jis
+command Ee :e ++enc=euc-jp
+command Eu :e ++enc=utf-8
+
+" Open the file with specific format
+command Fd :e ++ff=dos
+command Fm :e ++ff=mac
+command Fu :e ++ff=unix
+
+function! ToUni()
+  set ff=unix
+  set fenc=utf8
+  w
+endfunction
+command W :call ToUni()
 
 map <C-j> 10j
 map <C-k> 10k
