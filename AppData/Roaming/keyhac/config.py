@@ -1,20 +1,22 @@
-﻿import sys
+import sys
+import os.path
 from keyhac import *
 
 def configure(keymap):
     keymap.clipboard_history.maxnum = 1
 
     # Replace Muhenkan as U0
-    keymap.replaceKey(29, 235)
+    keymap.replaceKey("(29)", 235)
     keymap.defineModifier(235, "User0")
 
     keymap_global = keymap.defineWindowKeymap()
 
-    is_64bits = sys.maxsize > 2**32
-    if is_64bits:
+    if os.path.exists("C:/msys64"):
         keymap_global["U0-S-Return"] = keymap.command_ShellExecute(None, "C:/msys64/msys2_shell.bat", "", "")
-    else:
+    elif os.path.exists("C:/msys32"):
         keymap_global["U0-S-Return"] = keymap.command_ShellExecute(None, "C:/msys32/msys2_shell.bat", "", "")
+    else:
+        sys.stdout.write("MSYS2 is NOT installed")
 
     keymap_global["U0-I"] = keymap.command_ShellExecute(None, "firefox.exe", "", "")
     keymap_global["U0-S-R"] = keymap.command_ReloadConfig
