@@ -42,10 +42,6 @@ NeoBundleCheck
 
 colorscheme molokai
 
-" MRU control
-nnoremap <silent> fm :Unite file_mru<CR>
-let g:unite_source_file_mru_limit = 500
-
 " yanktmp.vim control
 map <silent> sy :call YanktmpYank()<CR>
 map <silent> sp :call YanktmpPaste_p()<CR>
@@ -211,6 +207,7 @@ if s:is_linux
 elseif s:is_darwin
   vmap <C-c> !pbcopy;pbpasete<CR>
 endif
+set clipboard=unnamed
 
 " Color of line number
 hi LineNr ctermfg=74
