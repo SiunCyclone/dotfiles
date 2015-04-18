@@ -21,9 +21,15 @@ function replace_link() {
   echo "Want to replace?(y/n)"
   confirm
   if [ $? -eq 0 ]; then
-    rm -f $HOME/$link
+    mv $HOME/$link $HOME/$link.backup
     ln -s $cPath/$referer $HOME/$link
-    echo "[Replaced]: $link"
+    if [ $? -eq 0 ]; then
+      rm -f $HOME/$link.backup
+      echo "[Replaced]: $link"
+    else
+      mv $HOME/$link.backup $HOME/$link
+      echo "[Failed]"
+    fi
   else
     echo "[Ignored]: $link"
   fi
@@ -33,9 +39,12 @@ function replace_link() {
 function create_link() {
   local name=$1
 
-  echo $cPath/$name $HOME/$name
   ln -s $cPath/$name $HOME/$name
-  echo "[Created]: $name"
+  if [ $? -eq 0 ]; then
+    echo "[Created]: $name"
+  else
+    echo "[Failed]"
+  fi
   echo
 }
 
