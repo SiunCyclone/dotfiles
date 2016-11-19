@@ -114,21 +114,21 @@ RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
 
 
 # Setup zsh-autosuggestions
-source $HOME/.zsh-autosuggestions/autosuggestions.zsh
+#source $HOME/.zsh-autosuggestions/autosuggestions.zsh
 
 # Enable autosuggestions automatically
-zle-line-init() {
-  zle autosuggest-start
-}
+#zle-line-init() {
+#  zle autosuggest-start
+#}
 
-zle -N zle-line-init
+#zle -N zle-line-init
 
 # use ctrl+t to toggle autosuggestions(hopefully this wont be needed as
 # zsh-autosuggestions is designed to be unobtrusive)
-bindkey '^T' autosuggest-toggle
+#bindkey '^T' autosuggest-toggle
 
-AUTOSUGGESTION_HIGHLIGHT_COLOR='fg=6'
+#AUTOSUGGESTION_HIGHLIGHT_COLOR='fg=6'
 
-bindkey '^H' beginning-of-line
-bindkey '^L' end-of-line
+#bindkey '^H' beginning-of-line
+#bindkey '^L' end-of-line
 

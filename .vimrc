@@ -31,6 +31,9 @@ NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'fholgado/minibufexpl.vim'
 " Copy and pasete between other vim
 NeoBundle 'yanktmp.vim'
+" Typescript Syntax Highlight
+NeoBundle 'leafgarland/typescript-vim'
+autocmd BufRead, BufNewFile *.ts set filetype=typescript
 
 " Complement
 if !s:is_msys
