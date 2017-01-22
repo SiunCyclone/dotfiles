@@ -186,6 +186,8 @@ imap <C-j> <Esc><C-j>i
 imap <C-k> <Esc><C-k>i
 imap <C-h> <Esc>^i
 imap <C-l> <Esc>$a
+nmap de dei
+nnoremap :e :args<Space>
 " Window control
 nnoremap :ss :split
 nnoremap :sv :vsplit
@@ -200,7 +202,7 @@ map ntab :set expandtab<CR>
 nnoremap <silent><Space>b :%!xxd -g 1<CR>
 nnoremap <silent><Space>B :%!xxd -r<CR>
 " Cancel the emphasis of searched term
-nnoremap <silent> <C-u> :nohl<CR>
+nnoremap <silent><Esc><Esc> :nohl<CR>
 " Delete the-end-of-line-space when saving file
 autocmd BufWritePre * :%s/\s\+$//ge
 
