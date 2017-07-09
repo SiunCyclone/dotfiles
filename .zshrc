@@ -1,6 +1,7 @@
 case ${OSTYPE} in
   darwin*)
-    alias ls="gls --color -v -F";;
+    alias ls="gls --color -v -F"
+    alias vim="mvim";;
   linux*)
     alias ls="ls --color -v -F";;
   msys*)
@@ -13,6 +14,8 @@ alias lslh="ls -lh"
 alias lslah="ls -lah"
 alias lslha="ls -lah"
 alias .="cd .."
+
+# git alias
 alias gi="git"
 alias gil="git l"
 alias gila="git la"
@@ -40,6 +43,7 @@ alias gisupdate="git submodule update"
 alias gisupdateinit="git submodule update --init"
 alias giflog="git reflog"
 alias girm="git rm"
+
 alias v="vim"
 alias vi="vim"
 alias vimp="vim $HOME/.vimperatorrc"
@@ -47,6 +51,9 @@ alias vimr="vim $HOME/.vimrc"
 alias zshr="vim $HOME/.zshrc"
 alias hisz="history -nir 0 | less"
 alias df="df -h"
+
+alias revimr="source ~/.vimrc"
+alias rezshr="source ~/.zshrc"
 
 PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 export PATH
@@ -114,21 +121,21 @@ RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
 
 
 # Setup zsh-autosuggestions
-source $HOME/.zsh-autosuggestions/autosuggestions.zsh
+# source $HOME/.zsh-autosuggestions/autosuggestions.zsh
 
 # Enable autosuggestions automatically
-zle-line-init() {
-  zle autosuggest-start
-}
+#zle-line-init() {
+#  zle autosuggest-start
+#}
 
-zle -N zle-line-init
+#zle -N zle-line-init
 
 # use ctrl+t to toggle autosuggestions(hopefully this wont be needed as
 # zsh-autosuggestions is designed to be unobtrusive)
-bindkey '^T' autosuggest-toggle
+# bindkey '^T' autosuggest-toggle
 
-AUTOSUGGESTION_HIGHLIGHT_COLOR='fg=6'
+# AUTOSUGGESTION_HIGHLIGHT_COLOR='fg=6'
 
-bindkey '^H' beginning-of-line
-bindkey '^L' end-of-line
+# bindkey '^H' beginning-of-line
+# bindkey '^L' end-of-line
 
