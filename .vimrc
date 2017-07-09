@@ -33,6 +33,8 @@ NeoBundle 'fholgado/minibufexpl.vim'
 NeoBundle 'yanktmp.vim'
 " Typescript Syntax Highlight
 NeoBundle 'leafgarland/typescript-vim'
+" Text Align
+NeoBundle 'Align'
 
 " Complement
 if !s:is_msys
@@ -222,4 +224,10 @@ hi LineNr ctermfg=74
 hi Comment ctermfg=247
 " Color of tab
 hi SpecialKey ctermfg=74
+
+" Highlight
+augroup HilightsForce
+    autocmd!
+    autocmd WinEnter,BufRead,BufNew,Syntax * :silent! call matchadd('Todo', '\(TODO\|NOTE\|INFO\|XXX\|HACK\):')
+augroup END
 
