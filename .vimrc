@@ -35,6 +35,8 @@ NeoBundle 'yanktmp.vim'
 NeoBundle 'leafgarland/typescript-vim'
 " Text Align
 NeoBundle 'Align'
+" File Tree Viewer
+NeoBundle 'scrooloose/nerdtree'
 
 " Complement
 if !s:is_msys
@@ -204,6 +206,11 @@ nnoremap <silent><Space>b :%!xxd -g 1<CR>
 nnoremap <silent><Space>B :%!xxd -r<CR>
 " Cancel the emphasis of searched term
 nnoremap <silent><Esc><Esc> :nohl<CR>
+" Open Nerd Tree
+map :t :NERDTree<CR>
+" Ignore meta files(Nerd Tree)
+let NERDTreeIgnore = ['\.meta$']
+
 
 " Delete the-end-of-line-space when saving file
 autocmd BufWritePre * :%s/\s\+$//ge
