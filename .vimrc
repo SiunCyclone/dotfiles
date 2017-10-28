@@ -197,7 +197,7 @@ nnoremap :sv :vsplit
 " Buffer control
 nnoremap <silent>H :bp<CR>
 nnoremap <silent>L :bn<CR>
-nnoremap <silent><Space>d :bd<CR>
+nnoremap <silent><Space>d :bw<CR>
 " Switching display tab or not
 map tab :set noexpandtab<CR>
 map ntab :set expandtab<CR>
@@ -207,10 +207,9 @@ nnoremap <silent><Space>B :%!xxd -r<CR>
 " Cancel the emphasis of searched term
 nnoremap <silent><Esc><Esc> :nohl<CR>
 " Open Nerd Tree
-map :t :NERDTree<CR>
+map :tr :NERDTree<CR>
 " Ignore meta files(Nerd Tree)
 let NERDTreeIgnore = ['\.meta$']
-
 
 " Delete the-end-of-line-space when saving file
 autocmd BufWritePre * :%s/\s\+$//ge
