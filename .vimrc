@@ -31,6 +31,12 @@ NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'fholgado/minibufexpl.vim'
 " Copy and pasete between other vim
 NeoBundle 'yanktmp.vim'
+" Typescript Syntax Highlight
+NeoBundle 'leafgarland/typescript-vim'
+" Text Align
+NeoBundle 'Align'
+" File Tree Viewer
+NeoBundle 'scrooloose/nerdtree'
 
 " Complement
 if !s:is_msys
@@ -183,13 +189,15 @@ imap <C-j> <Esc><C-j>i
 imap <C-k> <Esc><C-k>i
 imap <C-h> <Esc>^i
 imap <C-l> <Esc>$a
+nmap de dei
+nnoremap :e :args<Space>
 " Window control
 nnoremap :ss :split
 nnoremap :sv :vsplit
 " Buffer control
 nnoremap <silent>H :bp<CR>
 nnoremap <silent>L :bn<CR>
-nnoremap <silent><Space>d :bd<CR>
+nnoremap <silent><Space>d :bw<CR>
 " Switching display tab or not
 map tab :set noexpandtab<CR>
 map ntab :set expandtab<CR>
@@ -197,9 +205,16 @@ map ntab :set expandtab<CR>
 nnoremap <silent><Space>b :%!xxd -g 1<CR>
 nnoremap <silent><Space>B :%!xxd -r<CR>
 " Cancel the emphasis of searched term
-nnoremap <silent> <C-u> :nohl<CR>
+nnoremap <silent><Esc><Esc> :nohl<CR>
+" Open Nerd Tree
+map :tr :NERDTree<CR>
+" Ignore meta files(Nerd Tree)
+let NERDTreeIgnore = ['\.meta$']
+
 " Delete the-end-of-line-space when saving file
 autocmd BufWritePre * :%s/\s\+$//ge
+" Set .ts file to typescript
+autocmd BufRead, BufNewFile *.ts set filetype=typescript
 
 " Copy to clipboard
 if s:is_linux
@@ -215,4 +230,10 @@ hi LineNr ctermfg=74
 hi Comment ctermfg=247
 " Color of tab
 hi SpecialKey ctermfg=74
+
+" Highlight
+augroup HilightsForce
+    autocmd!
+    autocmd WinEnter,BufRead,BufNew,Syntax * :silent! call matchadd('Todo', '\(TODO\|NOTE\|INFO\|XXX\|HACK\):')
+augroup END
 

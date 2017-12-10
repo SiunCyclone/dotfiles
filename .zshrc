@@ -24,15 +24,21 @@ alias gils="git ls"
 alias gilsa="git lsa"
 alias gis="git s"
 alias giff="git diff"
+alias giff@="git diff @"
+alias giffs="git diff --staged"
 alias gih="git ch"
+alias gihb="git ch -b"
 alias gib="git b"
 alias giba="git ba"
+alias gibd="gib -d"
+alias gilean="git clean"
 alias gimit="git ci -m"
 alias gimend="git ci --amend"
 alias gibase="git rebase"
 alias ginit="git init"
 alias gid="git add"
 alias gidp="git add -p"
+alias gidu="git add -u"
 alias ginfig="git config"
 alias ginfil="git config --list"
 alias ginfiu="git config user.name"
@@ -118,24 +124,4 @@ precmd () { vcs_info }
 PROMPT="$fg[cyan]${USER}$fg[white]@$fg[magenta]${HOST}$fg[white]     %B%~
 %b$ "
 RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
-
-
-# Setup zsh-autosuggestions
-# source $HOME/.zsh-autosuggestions/autosuggestions.zsh
-
-# Enable autosuggestions automatically
-#zle-line-init() {
-#  zle autosuggest-start
-#}
-
-#zle -N zle-line-init
-
-# use ctrl+t to toggle autosuggestions(hopefully this wont be needed as
-# zsh-autosuggestions is designed to be unobtrusive)
-# bindkey '^T' autosuggest-toggle
-
-# AUTOSUGGESTION_HIGHLIGHT_COLOR='fg=6'
-
-# bindkey '^H' beginning-of-line
-# bindkey '^L' end-of-line
 
