@@ -1,6 +1,7 @@
 case ${OSTYPE} in
   darwin*)
-    alias ls="gls --color -v -F";;
+    alias ls="gls --color -v -F"
+    alias vim="mvim";;
   linux*)
     alias ls="ls --color -v -F";;
   msys*)
@@ -13,6 +14,8 @@ alias lslh="ls -lh"
 alias lslah="ls -lah"
 alias lslha="ls -lah"
 alias .="cd .."
+
+# git alias
 alias gi="git"
 alias gil="git l"
 alias gila="git la"
@@ -46,6 +49,7 @@ alias gisupdate="git submodule update"
 alias gisupdateinit="git submodule update --init"
 alias giflog="git reflog"
 alias girm="git rm"
+
 alias v="vim"
 alias vi="vim"
 alias vimp="vim $HOME/.vimperatorrc"
@@ -54,7 +58,19 @@ alias zshr="vim $HOME/.zshrc"
 alias hisz="history -nir 0 | less"
 alias df="df -h"
 
-PATH="$(ruby -e 'print Gem.user_dir')/bin:/c/HashiCorp/Vagrant/bin:$PATH"
+alias revimr="source ~/.vimrc"
+alias rezshr="source ~/.zshrc"
+
+case ${OSTYPE} in
+  darwin*)
+    PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+    PATH="$HOME/.npm-global/bin:$PATH"
+  linux*)
+    PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+    PATH="$HOME/.npm-global/bin:$PATH"
+  msys*)
+    PATH="/c/HashiCorp/Vagrant/bin:$PATH"
+esac
 export PATH
 
 # Ignore .o file when complete
@@ -117,24 +133,4 @@ precmd () { vcs_info }
 PROMPT="$fg[cyan]${USER}$fg[white]@$fg[magenta]${HOST}$fg[white]     %B%~
 %b$ "
 RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
-
-
-# Setup zsh-autosuggestions
-#source $HOME/.zsh-autosuggestions/autosuggestions.zsh
-
-# Enable autosuggestions automatically
-#zle-line-init() {
-#  zle autosuggest-start
-#}
-
-#zle -N zle-line-init
-
-# use ctrl+t to toggle autosuggestions(hopefully this wont be needed as
-# zsh-autosuggestions is designed to be unobtrusive)
-#bindkey '^T' autosuggest-toggle
-
-#AUTOSUGGESTION_HIGHLIGHT_COLOR='fg=6'
-
-#bindkey '^H' beginning-of-line
-#bindkey '^L' end-of-line
 
