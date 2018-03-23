@@ -38,9 +38,14 @@ NeoBundle 'Align'
 " File Tree Viewer
 NeoBundle 'scrooloose/nerdtree'
 
-" Complement
+" msys's vim is not included lua
 if !s:is_msys
+  " Complement
   NeoBundle 'Shougo/neocomplete'
+  " Snippet
+  NeoBundle 'Shougo/neosnippet'
+  " Snippet Collections
+  NeoBundle 'Shougo/neosnippet-snippets'
 endif
 
 call neobundle#end()

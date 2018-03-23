@@ -54,7 +54,7 @@ alias zshr="vim $HOME/.zshrc"
 alias hisz="history -nir 0 | less"
 alias df="df -h"
 
-PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+PATH="$(ruby -e 'print Gem.user_dir')/bin:/c/HashiCorp/Vagrant/bin:$PATH"
 export PATH
 
 # Ignore .o file when complete
