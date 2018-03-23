@@ -18,6 +18,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'jacoborus/tender.vim'
 
 " QuickRun
 NeoBundle 'thinca/vim-quickrun'
@@ -51,8 +52,19 @@ endif
 call neobundle#end()
 NeoBundleCheck
 
+" Color of normal backgrounnd
+autocmd ColorScheme,BufEnter * hi Normal ctermbg=233
+" Color of line number
+autocmd ColorScheme,BufEnter * hi LineNr ctermfg=74 ctermbg=236
+" Color of current line
+autocmd ColorScheme,BufEnter * hi CursorLineNr ctermfg=208
+" Color of comment
+autocmd ColorScheme,BufEnter * hi Comment ctermfg=247
+" Color of tab
+autocmd ColorScheme,BufEnter * hi SpecialKey ctermfg=74
+
 colorscheme molokai
-autocmd FileType typescript colorscheme jellybeans
+autocmd FileType typescript colorscheme tender
 
 " yanktmp.vim control
 map <silent> sy :call YanktmpYank()<CR>
@@ -164,6 +176,8 @@ set foldmethod=indent
 set foldlevel=100
 " Enable backspace
 set backspace=indent,eol,start
+" Highlight cursor line
+set cursorline
 
 set encoding=utf-8
 " Auto detection
@@ -229,13 +243,6 @@ elseif s:is_darwin
   vmap <C-c> !pbcopy;pbpasete<CR>
 endif
 set clipboard=unnamed
-
-" Color of line number
-hi LineNr ctermfg=74
-" Color of comment
-hi Comment ctermfg=247
-" Color of tab
-hi SpecialKey ctermfg=74
 
 " Highlight
 augroup HilightsForce
