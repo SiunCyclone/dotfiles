@@ -53,7 +53,7 @@ call neobundle#end()
 NeoBundleCheck
 
 " Color of normal backgrounnd
-autocmd ColorScheme,BufEnter * hi Normal ctermbg=233
+autocmd ColorScheme,BufEnter * hi Normal ctermfg=252 ctermbg=233
 " Color of line number
 autocmd ColorScheme,BufEnter * hi LineNr ctermfg=74 ctermbg=236
 " Color of current line
@@ -221,6 +221,8 @@ nnoremap <silent><Space>d :bw<CR>
 " Switching display tab or not
 map tab :set noexpandtab<CR>
 map ntab :set expandtab<CR>
+" ColorScheme shortcut
+map :cs :colorscheme
 " Switching text-binary form
 nnoremap <silent><Space>b :%!xxd -g 1<CR>
 nnoremap <silent><Space>B :%!xxd -r<CR>
