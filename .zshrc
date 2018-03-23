@@ -62,6 +62,7 @@ alias revimr="source ~/.vimrc"
 alias rezshr="source ~/.zshrc"
 
 PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+PATH="$HOME/.npm-global/bin:$PATH"
 export PATH
 
 # Ignore .o file when complete

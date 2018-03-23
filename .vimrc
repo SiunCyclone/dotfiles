@@ -47,6 +47,7 @@ call neobundle#end()
 NeoBundleCheck
 
 colorscheme molokai
+autocmd FileType typescript colorscheme jellybeans
 
 " yanktmp.vim control
 map <silent> sy :call YanktmpYank()<CR>
