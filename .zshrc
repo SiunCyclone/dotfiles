@@ -64,12 +64,12 @@ alias rezshr="source ~/.zshrc"
 case ${OSTYPE} in
   darwin*)
     PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
-    PATH="$HOME/.npm-global/bin:$PATH"
+    PATH="$HOME/.npm-global/bin:$PATH";;
   linux*)
     PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
-    PATH="$HOME/.npm-global/bin:$PATH"
+    PATH="$HOME/.npm-global/bin:$PATH";;
   msys*)
-    PATH="/c/HashiCorp/Vagrant/bin:$PATH"
+    PATH="/c/HashiCorp/Vagrant/bin:$PATH";;
 esac
 export PATH
 
