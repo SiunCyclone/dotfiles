@@ -177,7 +177,7 @@ set foldlevel=100
 " Enable backspace
 set backspace=indent,eol,start
 " Highlight cursor line
-set cursorline
+" set cursorline
 
 set encoding=utf-8
 " Auto detection

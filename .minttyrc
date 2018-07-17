@@ -19,3 +19,4 @@ FontIsBold=no
 BellFlash=no
 ZoomShortcuts=yes
 ZoomFontWithWindow=no
+BellType=0
