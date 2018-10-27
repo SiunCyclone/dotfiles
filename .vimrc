@@ -249,7 +249,7 @@ set clipboard=unnamed
 " Highlight
 augroup HilightsForce
     autocmd!
-    autocmd WinEnter,BufRead,BufNew,Syntax * :silent! call matchadd('Todo', '\(TODO\|NOTE\|INFO\|XXX\|HACK\|Thinking\|Planning\):')
+    autocmd WinEnter,BufRead,BufNew,Syntax * :silent! call matchadd('Todo', '\(TODO\|NOTE\|INFO\|XXX\|HACK\|THINK\|PLAN\):\|CLEAN')
     autocmd WinEnter,BufRead,BufNew,Syntax * hi Todo ctermfg=247 ctermbg=0
 augroup END
 
