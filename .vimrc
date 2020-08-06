@@ -38,6 +38,8 @@ NeoBundle 'leafgarland/typescript-vim'
 NeoBundle 'Align'
 " File Tree Viewer
 NeoBundle 'scrooloose/nerdtree'
+" GLSL Shader Syntax
+NeoBundle 'tikhomirov/vim-glsl'
 
 " msys's vim is not included lua
 if !s:is_msys
@@ -62,6 +64,11 @@ autocmd ColorScheme,BufEnter * hi CursorLineNr ctermfg=208
 autocmd ColorScheme,BufEnter * hi Comment ctermfg=247
 " Color of tab
 autocmd ColorScheme,BufEnter * hi SpecialKey ctermfg=74
+
+" Shader Syntax
+autocmd! BufNewFile,BufRead *.shader set ft=cpp
+autocmd! BufNewFile,BufRead *.hlsl set ft=cpp
+autocmd! BufNewFile,BufRead *.glsl set ft=cpp
 
 colorscheme molokai
 autocmd FileType typescript colorscheme tender
@@ -247,9 +254,9 @@ endif
 set clipboard=unnamed
 
 " Highlight
-augroup HilightsForce
+augroup HighlightsForce
     autocmd!
-    autocmd WinEnter,BufRead,BufNew,Syntax * :silent! call matchadd('Todo', '\(TODO\|NOTE\|INFO\|XXX\|HACK\|THINK\|PLAN\):\|CLEAN')
+    autocmd WinEnter,BufRead,BufNew,Syntax * :silent! call matchadd('Todo', '\(TODO\|NOTE\|INFO\|XXX\|HACK\|THINK\|PLAN\):\|CLEAN\|OBSOLETE\|TMP')
     autocmd WinEnter,BufRead,BufNew,Syntax * hi Todo ctermfg=247 ctermbg=0
 augroup END
 

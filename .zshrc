@@ -38,7 +38,8 @@ alias gibase="git rebase"
 alias ginit="git init"
 alias gid="git add"
 alias gidp="git add -p"
-alias gidu="git add -u"
+alias gidu="git add --update"
+alias gida="git add --all"
 alias ginfig="git config"
 alias ginfil="git config --list"
 alias ginfiu="git config user.name"
@@ -69,7 +70,9 @@ case ${OSTYPE} in
     PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
     PATH="$HOME/.npm-global/bin:$PATH";;
   msys*)
-    PATH="/c/HashiCorp/Vagrant/bin:$PATH";;
+    PATH="/c/Program Files/R/R-3.5.1/bin:$PATH"
+    PATH="/c/HashiCorp/Vagrant/bin:$PATH"
+    PATH="/C/Windows/Microsoft.NET/Framework/v4.0.30319:$PATH";;
 esac
 export PATH
 
