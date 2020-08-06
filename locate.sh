@@ -78,13 +78,13 @@ function replace_file_to_hardlink() {
   echo "Can I DELETE it?(y/n)"
   confirm
   if [ $? -eq 0 ]; then
-    mv $VSCODE_PATH/$targetFile $VSCODE_PATH/$targetFile.backup
-    ln vscode/$targetFile $VSCODE_PATH/$targetFile
+    mv "$VSCODE_PATH"/$targetFile "$VSCODE_PATH"/$targetFile.backup
+    ln vscode/$targetFile "$VSCODE_PATH"/$targetFile
     if [ $? -eq 0 ]; then
-      rm $VSCODE_PATH/$targetFile.backup
+      rm "$VSCODE_PATH"/$targetFile.backup
       echo "[Created] $targetFile"
     else
-      mv $VSCODE_PATH/$targetFile.backup $VSCODE_PATH/$targetFile
+      mv "$VSCODE_PATH"/$targetFile.backup "$VSCODE_PATH"/$targetFile
       echo "[Failed]"
     fi
   else
@@ -95,7 +95,7 @@ function replace_file_to_hardlink() {
 function create_hardlink() {
   local targetFile=$1
 
-  ln vscode/$targetFile $VSCODE_PATH/$targetFile
+  ln vscode/$targetFile "$VSCODE_PATH"/$targetFile
   if [ $? -eq 0 ]; then
     echo "[Created] $targetFile"
   else
@@ -106,17 +106,18 @@ function create_hardlink() {
 function create_vscode_hardlink() {
   echo "*** Creating VSCode settings hard link ***"
   echo "VSCODE_PATH: $VSCODE_PATH"
+  ls "$VSCODE_PATH"
   echo
 
   local targetFile=settings.json
-  if [ -e $VSCODE_PATH/$targetFile ]; then
+  if [ -e "$VSCODE_PATH"/$targetFile ]; then
     replace_file_to_hardlink $targetFile
   else
     create_hardlink $targetFile
   fi
 
   targetFile=keybindings.json
-  if [ -e $VSCODE_PATH/$targetFile ]; then
+  if [ -e "$VSCODE_PATH"/$targetFile ]; then
     replace_file_to_hardlink $targetFile
   else
     create_hardlink $targetFile
@@ -130,7 +131,7 @@ function main() {
       VSCODE_PATH=$HOME/AppData/Roaming/Code/User;;
     darwin*)
       DOT_FILES=mac.dotfiles
-      VSCODE_PATH=$HOME;;
+      VSCODE_PATH=$HOME/Library/Application\ Support/Code/User;;
     linux*)
       DOT_FILES=linux.dotfiles
       VSCODE_PATH=$HOME;;
