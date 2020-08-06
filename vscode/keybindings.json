@@ -1,0 +1,83 @@
+// Place your key bindings in this file to override the defaults
+[
+  // Tab
+  {
+    "key": "shift+h",
+    "command": "workbench.action.previousEditor",
+    "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode != 'Insert' && vim.mode != 'SearchInProgressMode'",
+  },
+  {
+    "key": "shift+l",
+    "command": "workbench.action.nextEditor",
+    "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode != 'Insert' && vim.mode != 'SearchInProgressMode'",
+  },
+  {
+    "key": "shift+d",
+    "command": "workbench.action.closeActiveEditor",
+    "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode != 'Insert' && vim.mode != 'SearchInProgressMode'",
+  },
+  {
+    "key": "shift+t",
+    "command": "workbench.action.reopenClosedEditor",
+    "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode != 'Insert' && vim.mode != 'SearchInProgressMode'",
+  },
+
+  // Text
+  {
+    "key": "alt+k",
+    "command": "editor.action.insertCursorAbove",
+    "when": "editorTextFocus",
+  },
+  {
+    "key": "alt+j",
+    "command": "editor.action.insertCursorBelow",
+    "when": "editorTextFocus",
+  },
+  {
+    "key": "alt+l",
+    "command": "editor.action.selectHighlights",
+    "when": "editorFocus",
+  },
+  {
+    "key": "alt+shift+k",
+    "command": "editor.action.moveLinesUpAction",
+    "when": "editorTextFocus && !editorReadonly",
+  },
+  {
+    "key": "alt+shift+j",
+    "command": "editor.action.moveLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly",
+  },
+
+  // Show and Hide
+  {
+    "key": "shift+alt+z",
+    "command": "workbench.action.toggleZenMode"
+  },
+  {
+    "key": "shift+alt+a",
+    "command": "workbench.action.toggleActivityBarVisibility"
+  },
+  {
+    "key": "shift+alt+s",
+    "command": "workbench.action.toggleSidebarVisibility"
+  },
+  {
+    "key": "shift+alt+m",
+    "command": "editor.action.toggleMinimap"
+  },
+  {
+    "key": "shift+alt+r",
+    "command": "extension.toggle"
+  },
+
+  // Editor
+  {
+    "key": "ctrl+shift+alt+i",
+    "command": "editor.action.inspectTMScopes"
+  },
+  {
+    "key": "ctrl+shift+alt+r",
+    "command": "workbench.action.reloadWindow",
+  },
+]

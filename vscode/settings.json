@@ -1,0 +1,98 @@
+{
+  // Font
+  "editor.codeLens": false,
+    // zoom 2 times
+    //"editor.fontSize": 13,
+    //"editor.lineHeight": 15,
+  "editor.fontSize": 19,
+  "terminal.integrated.fontSize": 17,
+  "markdown.preview.fontSize": 17,
+
+  // General
+  "editor.lineHeight": 22,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.cursorBlinking": "solid",
+  "editor.fontFamily": "Consolas, Meiryo",
+  "editor.autoClosingBrackets": "never",
+  "editor.minimap.showSlider": "always",
+  "editor.wordWrap": "on",
+  "editor.wrappingIndent": "indent",
+  "editor.detectIndentation": false,
+
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": false,
+  "window.zoomLevel": 0,
+
+  // Completion
+  "editor.acceptSuggestionOnEnter": "off",
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "editor.tabCompletion": "on",
+
+  // ColorTheme
+  "workbench.colorTheme": "Visual Studio Dark",
+  "workbench.colorCustomizations": {
+    "editorGutter.background": "#292929",
+    "tab.activeBorder": "#00ffff"
+  },
+  "workbench.editor.enablePreview": false,
+
+  // Exclude
+  "files.exclude": {
+    "**/*.meta": true
+  },
+
+  // Vim
+  "vim.normalModeKeyBindings": [
+    { "before": ["C-j"],   "after": ["1", "0", "j"] },
+    { "before": ["C-k"],   "after": ["1", "0", "k"] },
+    { "before": ["<C-h>"], "after": ["^"] },
+    { "before": ["<C-l>"], "after": ["$"] },
+  ],
+  "vim.insertModeKeyBindings": [
+    { "before": ["<C-h>"], "after": ["esc", "^", "i"] },
+    { "before": ["<C-l>"], "after": ["esc", "$", "a"] },
+  ],
+  "vim.visualModeKeyBindings": [
+    { "before": ["C-j"],        "after": ["1", "0", "j"] },
+    { "before": ["v", "C-j"],   "after": ["1", "0", "j"] },
+    { "before": ["C-k"],        "after": ["1", "0", "k"] },
+    { "before": ["v", "C-k"],   "after": ["1", "0", "k"] },
+    { "before": ["<C-h>"],      "after": ["^"] },
+    { "before": ["v", "<C-h>"], "after": ["^"] },
+    { "before": ["<C-l>"],      "after": ["$"] },
+    { "before": ["v", "<C-l>"], "after": ["$"] },
+  ],
+  "vim.foldfix": true,
+
+  // Terminal
+  "terminal.integrated.shell.windows": "C:/msys64/usr/bin/zsh.exe",
+  "terminal.integrated.env.windows": {
+    "MSYSEM": "MINGW64",
+    "CHERE_INVOKING": "1"
+  },
+  "terminal.integrated.shellArgs.windows": [
+    "--login"
+  ],
+
+  // Generic
+  "workbench.activityBar.visible": true,
+  "editor.minimap.enabled": false,
+
+  // Language
+  "[markdown]": {
+    "editor.renderWhitespace": "all",
+    "files.trimTrailingWhitespace": false,
+  },
+  "[csharp]": {
+    "editor.defaultFormatter": "Leopotam.csharpfixformat"
+  },
+  "[python]": {
+    //"editor.tabSize": 4,
+  },
+  "csharpfixformat.style.spaces.beforeParenthesis": false,
+  "csharpfixformat.style.newline.elseCatch": true,
+  "csharpfixformat.style.newline.atEnd": true,
+  "workbench.iconTheme": "vscode-icons",
+  "extensions.ignoreRecommendations": true,
+}
