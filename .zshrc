@@ -1,7 +1,6 @@
 case ${OSTYPE} in
   darwin*)
-    alias ls="gls --color -v -F"
-    alias vim="mvim";;
+    alias ls="gls --color -v -F";;
   linux*)
     alias ls="ls --color -v -F";;
   msys*)
