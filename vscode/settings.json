@@ -48,6 +48,7 @@
     { "before": ["C-k"],   "after": ["1", "0", "k"] },
     { "before": ["<C-h>"], "after": ["^"] },
     { "before": ["<C-l>"], "after": ["$"] },
+    { "before": ["<C-u>"], "commands": [":nohl"] },
   ],
   "vim.insertModeKeyBindings": [
     { "before": ["<C-h>"], "after": ["esc", "^", "i"] },
@@ -64,6 +65,7 @@
     { "before": ["v", "<C-l>"], "after": ["$"] },
   ],
   "vim.foldfix": true,
+  "vim.hlsearch": true,
 
   // Terminal
   "terminal.integrated.shell.windows": "C:/msys64/usr/bin/zsh.exe",
